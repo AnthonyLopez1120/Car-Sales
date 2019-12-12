@@ -5,23 +5,27 @@ import { addItem } from "../actions/actions"
 
 const AdditionalFeatures = props => {
   return (
+    
     <div className="content">
       <h4>Additional Features</h4>
-      {props.store.length ? (
+      {props.additionalFeature.length > 0  ? (
         <ol type="1">
-          {props.store.map(item => (
+          {props.additionalFeature.map(item => (
             <AdditionalFeature key={item.id} feature={item} addItem = {props.addItem}/>
           ))}
         </ol>
       ) : (
         <p>Nice looking car!</p>
-      )}
+      )} 
+
+      {console.log(props.store)}
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  return {store: state.store}
+  console.log(state)
+  return {additionalFeature: state.additionalFeatures}
 }
 
 
